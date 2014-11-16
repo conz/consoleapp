@@ -1,0 +1,8 @@
+# Gambas Project File 3.0
+# Compiled with Gambas 3.6.2
+Title=consoleapp
+Startup=MMain
+Version=0.0.93
+Component=gb.ncurses
+TabSize=2
+Packager=1
