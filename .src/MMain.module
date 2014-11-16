@@ -1,0 +1,59 @@
+' Gambas module file
+
+Public Sub Main()
+Dim i, j, k As Integer
+
+  Screen.Cursor = Cursor.Hidden
+  Screen.Echo = False
+  
+  Window.border = 2
+  
+  Window.Attributes = Attr.Bold
+  Object.Attach(Window, Me, "Window")
+  Window.SetFocus()  
+  ' Window.Print("Hello. Do you want to play? [Y/n]", -1, -1)
+  ' Window.Ask("yn\n", 3)
+  ' Window.Print("Bo", 20, 20)
+  ' Window.Print("Bad luck! Today we play anyway", -1, -1)
+  
+  For i = 0 To Window.width
+    For j = 0 To Window.height
+      Window.Print(Chr$(Int(Rnd(32, 96))), i, j,, Pair[GenColor(), GenColor()])  
+      'Window.Print("K", i, j,, Pair[Color.blue, Color.white])
+    Next
+  Next
+  For k = 1 To 100000
+    Window.Print(Chr$(Int(Rnd(32, 96))), Int(Rnd(0, Window.width)), Int(Rnd(0, Window.height)),, Pair[GenColor(), GenColor()])  
+    'Screen.Refresh
+    'Print Window.Read
+    
+  Next
+  'k = Int(GenColor())
+  'Window.PrintCenter(Str$(k),, Pair[Color.Blue, Color.red])  
+  
+  Quit
+End
+Public Function GenColor() As Integer
+'Generates a random color
+Dim nSelection As Integer
+  nSelection = Int(Rnd(0, 6))
+  'Print nSelection
+  
+  Select Case nSelection
+    Case 0
+      Return Color.Black
+    Case 1  
+      Return Color.Blue
+    Case 2
+      Return Color.Cyan
+    Case 3
+      Return Color.Green
+    Case 4
+      Return Color.Magenta
+    Case 5
+      Return Color.Red
+    Case 6
+      Return Color.Yellow
+  End Select
+End
+
